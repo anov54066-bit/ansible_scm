@@ -1,0 +1,5 @@
+- name: Установить и настроить Redis
+  hosts: all
+  become: true
+  roles:
+    - redis
