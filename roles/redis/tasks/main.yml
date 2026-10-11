@@ -14,3 +14,13 @@
     group: redis
     mode: "0750"
   when: ansible_os_family == "Debian"
+
+- name: Записать конфигурацию Redis
+  template:
+    src: redis.conf.j2
+    dest: /etc/redis/redis.conf
+    owner: root
+    group: redis
+    mode: "0640"
+  when: ansible_os_family == "Debian"
+
