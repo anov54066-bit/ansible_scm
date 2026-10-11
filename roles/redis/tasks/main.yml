@@ -5,3 +5,12 @@
     update_cache: true
     cache_valid_time: 3600
   when: ansible_os_family == "Debian"
+  
+- name: Создать каталог данных Redis
+  file:
+    path: "{{ redis_dir }}"
+    state: directory
+    owner: redis
+    group: redis
+    mode: "0750"
+  when: ansible_os_family == "Debian"
