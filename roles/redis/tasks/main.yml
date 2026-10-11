@@ -22,5 +22,12 @@
     owner: root
     group: redis
     mode: "0640"
+  notify: Restart Redis
   when: ansible_os_family == "Debian"
 
+- name: Запустить Redis и включить автозагрузку
+  service:
+    name: redis-server
+    state: started
+    enabled: true
+  when: ansible_os_family == "Debian"
